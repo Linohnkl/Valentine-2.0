@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine </title>
+
+<style>
+    body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background-color: #fff0f5;
+        margin-top: 100px;
+    }
+
+    h1 {
+        color: #e91e63;
+    }
+
+    button {
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px;
+    }
+
+    .yes-button {
+        background-color: hotpink;
+        color: white;
+    }
+
+    .no-button {
+        background-color: lightgray;
+    }
+
+    .valentine-image1 {
+        height: 25vh;
+        width: 40%;
+        object-fit: cover;
+
+    }
+</style>
+</head>
+
+<body>
+
+<img class = "valentine-image1" src="img/bild2.jpeg">
+
+
+<h1>Willst du mein Valentine sein? please</h1>
+
+<button class="yes-button" onclick="handleYesClick()">Yes 💖</button>
+<button class="no-button" onclick="handleNoClick()">No 😢</button>
+
+<script>
+let messageIndex = 0;
+
+const messages = [
+    "Bist du sicher? 🥺",
+    "Bitte überleg es dir nochmal !!",
+    "Ich gebe dir auch Geld",
+    "Bitteeeee 😭",
+    "Eyyyyy"
+];
+
+function handleNoClick() {
+    const noButton = document.querySelector('.no-button');
+    const yesButton = document.querySelector('.yes-button');
+
+    // Text ändern
+    noButton.textContent = messages[messageIndex];
+    messageIndex = (messageIndex + 1) % messages.length;
+
+    // YES Button größer machen
+    const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+    yesButton.style.fontSize = (currentSize * 1.3) + "px";
+}
+
+function handleYesClick() {
+    window.location.href = "yes.html";
+}
+</script>
+
+</body>
+</html>
